@@ -1,0 +1,11 @@
+/* layout */
+
+.profile-details {
+
+}
+
+.profile-details img {
+    aspect-ratio: 1;
+    object-fit: cover;
+    padding-inline: 0;
+}

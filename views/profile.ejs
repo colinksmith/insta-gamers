@@ -1,11 +1,13 @@
 <%- include('partials/header') -%>
-<div class="container">
+<div class="container-fluid profile">
   <div class="row mt-5">
-      <div class="col-6">
-          <div>
-              <p><strong>User Name</strong>: <%= profile.userName %></p>
-              <p><strong>Email</strong>: <%= profile.email %></p>
-              <a href="/logout" class="col-3 btn btn-primary">Logout</a>
+    <%- include('partials/sidebar') -%>
+    <div class="col-10">
+      <div class="col-lg-8 profile-details">
+          <div class="row">
+            <img class="col-3 rounded-circle" src="https://images.dog.ceo/breeds/eskimo/n02109961_15315.jpg">
+            <p class="col-6"><strong>User Name</strong>: <%= profile.userName %></p>
+            <a href="/logout" class="col-3 btn btn-primary">edit profile</a>
           </div>
           <%if(user && profile.id === user.id){ %>
             <div class="mt-5">
@@ -28,20 +30,7 @@
             </div>
           <%}%>
       </div>
-      <div class="col-6">
-        <ul class="row list-unstyled">
-        <% for(var i=0; i<posts.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <a href="/post/<%= posts[i]._id%>">
-              <img class="img-fluid" src="<%= posts[i].image%>">
-            </a>
-          </li>
-        <% } %>
-        </ul>
-        <div class="row justify-content-center mt-5">
-          <a class="btn btn-primary" href="/">Return to Feed</a>
-        </div>  
-      </div>  
+      <%- include('partials/profile-posts') -%>
     </div>
   </div>
 </div>

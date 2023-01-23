@@ -1,7 +1,8 @@
 <%- include('partials/header') -%>
-<div class="container">
+<div class="container-fluid">
   <div class="row justify-content-center mt-5">
-    <div class="col-6">
+    <%- include('partials/sidebar') -%>
+    <div class="col-10">
       <h2><%= post.title %></h2>
       <img class="img-fluid" src="<%= post.image%>" />
       <div class="row justify-content-between">
@@ -13,7 +14,7 @@
           <button class="btn btn-primary fa fa-heart" type="submit"></button>
         </form>
         <h3 class="col-3">Likes: <%= post.likes %></h3>
-        <%if(post.user == user.id){ %>
+        <%if(user && post.user == user.id){ %>
         <form
           action="/post/deletePost/<%= post.id %>?_method=DELETE"
           method="POST"
@@ -23,32 +24,34 @@
         </form>
         <%}%>
       </div>
-    </div>
-    <div class="col-3 mt-5">
-      <a href="/profile/<%= originalPoster.id%>"><strong><%= originalPoster.userName%></strong></a>
-      <p><%= post.caption %></p>
-      <ul>
-        <% for(var i=0; i<comments.length; i++) {%>
-          <li class="col-6 justify-content-between mt-5">
-            <p><%= comments[i].user.userName %></p>
-            <p><%= comments[i].content %></p>
-          </li>
-        <% } %>
-      </ul>
-      <div class="mt-5">
-        <h2>Add a comment</h2>
-        <form action="/post/createComment/<%= post.id %>" method="POST">
-          <div class="mb-3">
-            <label for="content" class="form-label">Comment</label>
-            <textarea class="form-control" id="content" name="content"></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
-        </form>
+      <div class="col-3 mt-5">
+        <a href="/profile/<%= originalPoster.id%>"><strong><%= originalPoster.userName%></strong></a>
+        <p><%= post.caption %></p>
+        <ul>
+          <% for(var i=0; i<comments.length; i++) {%>
+            <li class="col-6 justify-content-between mt-5">
+              <p><%= comments[i].user.userName %></p>
+              <p><%= comments[i].content %></p>
+            </li>
+          <% } %>
+        </ul>
+        <div class="mt-5">
+          <h2>Add a comment</h2>
+          <form action="/post/createComment/<%= post.id %>" method="POST">
+            <div class="mb-3">
+              <label for="content" class="form-label">Comment</label>
+              <textarea class="form-control" id="content" name="content"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+          </form>
+        </div>
       </div>
-    </div>
-    <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+      <div class="col-6 mt-5">
+        <%if(user){ %>
+          <a class="btn btn-primary" href="/profile">Return to Profile</a>
+        <% } %>
+        <a class="btn btn-primary" href="/feed">Return to Feed</a>
+      </div>
     </div>
   </div>
 </div>
