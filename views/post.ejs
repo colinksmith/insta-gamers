@@ -25,7 +25,7 @@
       </div>
     </div>
     <div class="col-3 mt-5">
-      <p><strong><%= originalPoster.userName%></strong></p>
+      <a href="/profile/<%= originalPoster.id%>"><strong><%= originalPoster.userName%></strong></a>
       <p><%= post.caption %></p>
       <ul>
         <% for(var i=0; i<comments.length; i++) {%>
