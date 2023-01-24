@@ -13,6 +13,16 @@ module.exports = {
       console.log(err);
     }
   },
+  getCuratedFeed: async (req, res) => {
+    try {
+      const posts = await Post.find({user: { $in: req.user.following}})
+                              .sort({ createdAt: "desc" })
+                              .lean();
+      res.render("feed.ejs", { posts: posts, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
@@ -75,7 +85,6 @@ module.exports = {
     }
   },
   createComment: async (req, res) => {
-    console.log(req)
     try {
       await Comment.create({
         content: req.body.content,

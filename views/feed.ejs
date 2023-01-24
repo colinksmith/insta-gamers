@@ -11,6 +11,9 @@
               </a>
             </li>
           <% } %>
+          <% if (posts.length === 0) { %>
+            <p>Looks like you're not following anyone</p>
+          <% } %>
           </ul>
       </div>
 

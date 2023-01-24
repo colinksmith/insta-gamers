@@ -1,0 +1,18 @@
+<div class="col-lg-10">
+	<h2>Followers</h2>
+	<ul class="row list-unstyled">
+	<% for(var i=0; i<profile.followers.length; i++) {%>
+		<li class="col-3 justify-content-between mt-5 d-flex flex-column align-items-center">
+			<img class="img-fluid rounded-circle" src="<%= profile.followers[i].picLink%>">
+			<a href="/profile/<%= profile.followers[i]._id%>"><%= profile.followers[i].userName%></a>
+		</li>
+	<% } %>
+	<% if (profile.followers.length === 0) { %>
+		<p>Hmm, there don't seem to be any followers yet</p>
+	<% } %>
+	</ul>
+	<div class="row justify-content-center mt-5">
+		<a class="btn btn-primary" href="/">Return to Feed</a>
+	</div>  
+</div>  
+</div>
