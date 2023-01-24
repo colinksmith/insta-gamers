@@ -18,9 +18,7 @@
     width: 3rem;
     aspect-ratio: 1;
 }
-.commentContainer h2 {
-    width: auto;
-}
+
 .commentContainer h2:after {
     content: '';
     background: black;
