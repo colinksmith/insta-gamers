@@ -76,8 +76,36 @@ module.exports = {
   getUserProfileSettings: async (req, res) => {
     try {
         req.user
-        const posts = await Post.find({ user: req.user.id });
-        res.render("profile-settings.ejs", { posts: posts, user: req.user, profile: req.user });
+        res.render("profile-settings.ejs", { user: req.user, profile: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  updateUserProfileSettings: async (req, res) => {
+    try {
+      // console.log(req.user)
+      console.log(req.body)
+      const targetUserName = await User.findOne({userName: req.body.name})
+      const targetEmail = await User.findOne({email: req.body.email})
+
+      if (targetUserName && targetUserName.userName !== req.user.userName){
+        console.log('username taken')
+      }
+      if (targetEmail && targetEmail.email !== req.user.email){
+        console.log('email taken')
+      }
+      await User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+          $set: { 
+            userName: req.body.name,
+            email: req.body.email,
+            bio: req.body.bio,
+          },
+        }
+      );
+      console.log("Profile updated");
+      res.redirect('/profile/settings');
     } catch (err) {
       console.log(err);
     }

@@ -8,7 +8,8 @@ const UserSchema = new mongoose.Schema({
   bio: String,
   following: Array,
   followers: Array,
-  picLink: {type: String, default: 'https://res.cloudinary.com/dpwcgywul/image/upload/v1674507135/avatar_n8w4kc.svg'}
+  picLink: {type: String, default: 'https://res.cloudinary.com/dpwcgywul/image/upload/v1674507135/avatar_n8w4kc.svg'},
+  cloudinaryId: { type: String, require: true, },
 });
 
 // Password hash middleware.

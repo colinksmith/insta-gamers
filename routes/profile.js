@@ -13,6 +13,7 @@ router.get("/followers/:profileId", profileController.getUserProfileFollowers);
 router.post("/follow/:profileId", ensureAuth, profileController.followProfile);
 router.get("/following/:profileId", profileController.getUserProfileFollowing);
 router.get("/settings", ensureAuth, profileController.getUserProfileSettings);
+router.put("/settings", ensureAuth, profileController.updateUserProfileSettings);
 
 
 
