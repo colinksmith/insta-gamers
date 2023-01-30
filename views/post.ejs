@@ -35,7 +35,7 @@
 
             <div class="col-12 py-2 mt-2 d-flex flex-row gap-2 align-items-center">
               <img class="rounded-circle px-0 mx-3" src="<%= originalPoster.picLink%>">
-              <a href="/profile/<%= originalPoster.id%>"><strong><%= originalPoster.userName%></strong></a>
+              <a href="/profile/user/<%= originalPoster.id%>"><strong><%= originalPoster.userName%></strong></a>
               <%if(user && originalPoster.id !== user.id) {%>
                 <span> - </span>
                 <form class="" action="/profile/follow/<%= originalPoster.id %>?_method=POST" method="POST">
@@ -60,7 +60,7 @@
                     </div>
                   </div>
                 </div>
-                <p class="col shrink mb-0 px-0"><a class="py-3 px-1" href="/profile/<%= comments[i].user._id %>"><%= comments[i].user.userName%></a><%= comments[i].content %></p>
+                <p class="col shrink mb-0 px-0"><a class="py-3 px-1" href="/profile/user/<%= comments[i].user._id %>"><%= comments[i].user.userName%></a><%= comments[i].content %></p>
 
               </li>
             <% } %>
