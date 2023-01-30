@@ -2,6 +2,8 @@ const cloudinary = require("../middleware/cloudinary");
 const Post = require("../models/Post");
 const User = require("../models/User");
 const Comment = require("../models/Comment");
+const validator = require("validator");
+
 
 
 module.exports = {
@@ -83,17 +85,29 @@ module.exports = {
   },
   updateUserProfileSettings: async (req, res) => {
     try {
-      // console.log(req.user)
       console.log(req.body)
       const targetUserName = await User.findOne({userName: req.body.name})
       const targetEmail = await User.findOne({email: req.body.email})
 
+      const validationErrors = [];
       if (targetUserName && targetUserName.userName !== req.user.userName){
-        console.log('username taken')
+        validationErrors.push({ msg: "Username is already taken." });
       }
       if (targetEmail && targetEmail.email !== req.user.email){
-        console.log('email taken')
+        validationErrors.push({ msg: "Email address is already taken." });
       }
+      if (!validator.isEmail(req.body.email)){
+        validationErrors.push({ msg: "Please enter a valid email address." });
+      }
+    
+      if (validationErrors.length) {
+        req.flash("errors", validationErrors);
+        return res.redirect("/profile/settings");
+      }
+      req.body.email = validator.normalizeEmail(req.body.email, {
+        gmail_remove_dots: false,
+      });
+
       await User.findOneAndUpdate(
         { _id: req.user._id },
         {
@@ -106,6 +120,46 @@ module.exports = {
       );
       console.log("Profile updated");
       res.redirect('/profile/settings');
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  updateUserProfilePic: async (req, res) => {
+    try {
+      // Upload image to cloudinary
+      console.log(req.file)
+      const upload = await cloudinary.uploader.upload(req.file.path);
+      if (req.user.cloudinaryId){
+        await cloudinary.uploader.destroy(req.user.cloudinaryId);
+      }
+
+      await User.findOneAndUpdate(
+        { _id: req.user._id },
+        {
+        picLink: upload.secure_url,
+        cloudinaryId: upload.public_id,
+      });
+      console.log("profile pic has been added!");
+      res.redirect("/profile/settings");
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  createPost: async (req, res) => {
+    try {
+      // Upload image to cloudinary
+      const result = await cloudinary.uploader.upload(req.file.path);
+
+      await Post.create({
+        title: req.body.title,
+        image: result.secure_url,
+        cloudinaryId: result.public_id,
+        caption: req.body.caption,
+        likes: 0,
+        user: req.user.id,
+      });
+      console.log("Post has been added!");
+      res.redirect("/profile");
     } catch (err) {
       console.log(err);
     }

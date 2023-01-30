@@ -9,7 +9,7 @@ const UserSchema = new mongoose.Schema({
   following: Array,
   followers: Array,
   picLink: {type: String, default: 'https://res.cloudinary.com/dpwcgywul/image/upload/v1674507135/avatar_n8w4kc.svg'},
-  cloudinaryId: { type: String, require: true, },
+  cloudinaryId: { type: String, },
 });
 
 // Password hash middleware.

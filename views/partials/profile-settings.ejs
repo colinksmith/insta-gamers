@@ -18,23 +18,35 @@
             <textarea type="text" class="form-control" id="bio" name="bio"><%= user.bio%></textarea>
         </div>
     </div>
+    
     <div class="row">
         <div class="col-sm-10 offset-sm-2">
+            <% if (locals.messages.errors) { %>
+                <% messages.errors.forEach( el => { %>
+                    <div class="alert alert-danger"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
+            <% if (locals.messages.info) { %>
+                <% messages.info.forEach( el => { %>
+                    <div class="alert alert-info"><%= el.msg %></div>
+                <% }) %>    
+            <% } %>
             <button type="submit" class="btn btn-primary" value="Upload">Update profile info</button>
         </div>
     </div>
     
 </form>
-<form class="col-lg-10 my-4" action="/profile/settings?_method=PUT" enctype="multipart/form-data" method="POST">
+<form class="col-lg-10 my-4" action="/profile/profilepic?_method=PUT" enctype="multipart/form-data" method="POST">
+
     <div class="mb-3 row">
-        <label for="profileUpload" class="form-label col-sm-2 text-sm-end">Profile Image</label>
+        <label for="file" class="form-label col-sm-2 text-sm-end">Profile Image</label>
         <div class="col-sm-10">
-            <input type="file" class="form-control" id="profileUpload" name="file">
+            <input type="file" class="form-control" id="file" name="file" required>
         </div>
     </div>
     <div class="row">
         <div class="col-sm-10 offset-sm-2">
-            <button type="submit" class="btn btn-primary" value="Upload">Update profile image</button>
+            <button type="submit" class="btn btn-primary" value="Upload">Change profile image</button>
         </div>
     </div>
 </form>
