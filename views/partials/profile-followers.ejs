@@ -3,7 +3,7 @@
 	<ul class="row list-unstyled">
 	<% for(var i=0; i<profile.followers.length; i++) {%>
 		<li class="col-3 justify-content-between mt-5 d-flex flex-column align-items-center">
-			<img class="img-fluid rounded-circle" src="<%= profile.followers[i].picLink%>">
+			<img class="img-fluid rounded-circle user-thumbnail" src="<%= profile.followers[i].picLink%>">
 			<a href="/profile/user/<%= profile.followers[i]._id%>"><%= profile.followers[i].userName%></a>
 		</li>
 	<% } %>

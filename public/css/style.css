@@ -16,7 +16,6 @@
 
 .commentContainer img {
     width: 3rem;
-    aspect-ratio: 1;
 }
 
 .commentContainer h2:after {
@@ -34,4 +33,9 @@
     border-bottom: 1px solid rgba(0, 0, 0, .2);
     width: 50%;
     margin: 0 auto;
+}
+
+.user-thumbnail {
+    object-fit: cover;
+    aspect-ratio: 1;
 }

@@ -34,7 +34,7 @@
             <p class="mb-0 px-4"></a><%= post.caption %></p>
 
             <div class="col-12 py-2 mt-2 d-flex flex-row gap-2 align-items-center">
-              <img class="rounded-circle px-0 mx-3" src="<%= originalPoster.picLink%>">
+              <img class="rounded-circle px-0 mx-3 user-thumbnail" src="<%= originalPoster.picLink%>">
               <a href="/profile/user/<%= originalPoster.id%>"><strong><%= originalPoster.userName%></strong></a>
               <%if(user && originalPoster.id !== user.id) {%>
                 <span> - </span>
@@ -56,7 +56,7 @@
                 <div class="col-auto shrink">
                   <div class="row">
                     <div class="col-sm-auto">
-                      <img class="rounded-circle px-0" src="<%= comments[i].user.picLink%>">
+                      <img class="rounded-circle px-0 user-thumbnail" src="<%= comments[i].user.picLink%>">
                     </div>
                   </div>
                 </div>
