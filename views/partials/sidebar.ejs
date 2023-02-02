@@ -1,15 +1,17 @@
 <nav class="col-2 fixed-top mt-5">
     <p>Insta-Gamer</p>
-    <li class="d-flex flex-column">
-        <a href="/feed">My Feed</a>
-        <a href="/">Explore</a>
-        <a href="/profile/">Profile</a>
-        <a href="/profile/settings">Settings</a>
+    <ul class="d-flex flex-column list-unstyled">
+
         <%if(user){ %>
-            <a href="/logout">Log Out</a>
+            <li><a href="/feed">My Feed</a></li>
+            <li><a href="/">Explore</a></li>
+            <li><a href="/profile/">Profile</a></li>
+            <li><a href="/profile/settings">Settings</a></li>
+            <li><a href="/logout">Log Out</a></li>
         <% } else { %>
-            <a href="/login">Log In</a>
+            <li><a href="/">Explore</a></li>
+            <li><a href="/login">Log In</a></li>
         <% } %>
 
-    </li>
+    </ul>
 </nav>
