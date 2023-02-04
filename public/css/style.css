@@ -29,9 +29,25 @@ body {
     aspect-ratio: 1;
 }
 
+.profile .user-thumbnail {
+    max-width: 100px;
+}
+
+.logo {
+    max-width: min(100%, 100px);
+    aspect-ratio: 1;
+    border-radius: 20%;
+}
 
 
 /* styling */
+
+.blur-background {
+    
+    background-color: rgba(0, 0, 0, .95);
+    backdrop-filter: blur(2px);
+    border-radius: 5px;
+}
 
 .commentContainer h2:after {
     content: '';
@@ -56,14 +72,33 @@ body {
     object-fit: contain;
     background-color: rgba(0, 0, 0, .7);
     border-radius: 5px;
-    
+}
+
+.hover-effect {
     transition-property: background-color, transform;
     transition-duration: .5s;
 }
 
-.feed-image:hover {
+.hover-effect:hover {
     background-color: rgba(255, 255, 255, 0.2);
     transform: scale(1.02);
+}
+
+.sidebar-1 {
+    background-color: transparent;
+    border: 2px solid #00d7c3;
+    border-radius: 2px;
+    -webkit-transition: all .15s ease-in-out;
+    transition: all .15s ease-in-out;
+    color: #00d7c3;
+}
+.sidebar-1:hover {
+    color: white;
+    box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
+    border: 2px solid #00d7c3;
+}
+.sidebar-1 a {
+    color: white;
 }
 
 /* layout */
@@ -71,9 +106,4 @@ body {
     margin-inline: auto;
 }
 
-.commentContainer {
 
-    
-    background-color: rgba(0, 0, 0, .95);
-    backdrop-filter: blur(2px);
-}

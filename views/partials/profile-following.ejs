@@ -1,18 +1,17 @@
 <div class="col-lg-10 my-4">
 	<h2>Following</h2>
-	<ul class="row list-unstyled">
+	<ul class="list-unstyled d-flex flex-row flex-wrap">
 	<% for(var i=0; i<profile.following.length; i++) {%>
-		<li class="col-3 justify-content-between mt-5 d-flex flex-column align-items-center">
-			<img class="img-fluid rounded-circle user-thumbnail" src="<%= profile.following[i].picLink%>">
-			<a href="/profile/user/<%= profile.following[i]._id%>"><%= profile.following[i].userName%></a>
+		<li class="justify-content-between d-flex flex-column align-items-center mt-3 mx-1 mx-md-3">
+			<div class="px-3 py-3 text-center blur-background border border-secondary">
+				<img class="img-fluid rounded-circle user-thumbnail" src="<%= profile.following[i].picLink%>">
+				<a class="d-block" href="/profile/user/<%= profile.following[i]._id%>"><%= profile.following[i].userName%></a>
+			</div>
 		</li>
 	<% } %>
 	<% if (profile.following.length === 0) { %>
 		<p>Hmm, <%= profile.userName%> doesn't seem to be following anyone yet</p>
 	<% } %>
 	</ul>
-	<div class="row justify-content-center mt-5">
-		<a class="btn btn-primary" href="/">Return to Feed</a>
-	</div>  
 </div>  
 </div>

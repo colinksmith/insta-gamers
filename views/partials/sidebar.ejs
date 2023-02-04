@@ -1,16 +1,16 @@
-<nav class="col-2 fixed-top mt-5">
-    <p>Insta-Gamer</p>
-    <ul class="d-flex flex-column list-unstyled">
+<nav class="col-2 fixed-top mt-3 h-100 blur-background d-flex flex-column align-items-center">
+    <img class="logo mb-3" src="https://res.cloudinary.com/dpwcgywul/image/upload/v1675547242/default_g8zd6x.png">
+    <ul class="d-flex flex-column list-unstyled text-center w-100">
 
         <%if(user){ %>
-            <li><a href="/feed">My Feed</a></li>
-            <li><a href="/">Explore</a></li>
-            <li><a href="/profile/">Profile</a></li>
-            <li><a href="/profile/settings">Settings</a></li>
-            <li><a href="/logout">Log Out</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/feed">My Feed</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/">Explore</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/profile/">Profile</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/profile/settings">Settings</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/logout">Log Out</a></li>
         <% } else { %>
-            <li><a href="/">Explore</a></li>
-            <li><a href="/login">Log In</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a href="/">Explore</a></li>
+            <li class="mb-1 sidebar-1 px-1 py-1"><a href="/login">Log In</a></li>
         <% } %>
 
     </ul>
