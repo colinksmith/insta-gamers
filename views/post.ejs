@@ -46,14 +46,11 @@
                 </div>
               </div>
               <div class="col shrink mb-0 px-0"><a class="py-3 px-1" href="/profile/user/<%= originalPoster._id %>"><%= originalPoster.userName%></a>
-                <%if(user && originalPoster.id !== user.id) {%>
-                  <span> - </span>
-                  <form class="w-auto d-inline-block" action="/profile/follow/<%= originalPoster.id %>?_method=POST" method="POST">
-                    <button class="btn btn-primary fa fa-heart" type="submit"> Follow</button>
-                  </form>
+                <%if(user && originalPoster.id === user.id) {%>
+                  
                 <% } else if (!user) { %>
                   <span> - </span>
-                  <form class="w-auto d-inline-block" action="/index<%= originalPoster.id %>?_method=GET" method="POST">
+                  <form class="w-auto d-inline-block" action="/profile/follow/<%= originalPoster.id %>?_method=POST" method="POST">
                     <button class="btn btn-primary fa fa-heart" type="submit"> Follow</button>
                   </form>
                 <% } %>
