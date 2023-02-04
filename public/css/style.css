@@ -9,6 +9,8 @@ body {
     background-position: 50% 90%;
 
     color: white;
+
+    overflow-y: scroll;
 }
 
 /* image handling */
@@ -27,13 +29,7 @@ body {
     aspect-ratio: 1;
 }
 
-.feed-image {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    background-color: rgba(0, 0, 0, .7);
-    border-radius: 5px;
-}
+
 
 /* styling */
 
@@ -52,6 +48,22 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     width: 50%;
     margin: 0 auto;
+}
+
+.feed-image {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 5px;
+    
+    transition-property: background-color, transform;
+    transition-duration: .5s;
+}
+
+.feed-image:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02);
 }
 
 /* layout */
