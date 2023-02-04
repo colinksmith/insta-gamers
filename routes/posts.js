@@ -9,10 +9,10 @@ router.get("/:id", postsController.getPost);
 
 router.post("/createPost", upload.single("file"), postsController.createPost);
 
-router.put("/likePost/:id", postsController.likePost);
+router.put("/likePost/:id", ensureAuth, postsController.likePost);
 
-router.delete("/deletePost/:id", postsController.deletePost);
+router.delete("/deletePost/:id", ensureAuth, postsController.deletePost);
 
-router.post("/createComment/:postId", postsController.createComment)
+router.post("/createComment/:postId", ensureAuth, postsController.createComment)
 
 module.exports = router;
