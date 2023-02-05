@@ -6,13 +6,13 @@
       <div class="flex-shrink-1">
         <%if(user && profile.id === user.id) {%>
           <a href="/profile/settings" class="btn btn-primary">edit profile</a>
-        <%} else if (user){%>
+        <%} else {%>
           <form class="" action="/profile/follow/<%= profile.id %>?_method=POST" method="POST">
             <button class="btn btn-primary fa fa-heart" type="submit">Follow</button>
           </form>
-        <%} else {%>
-          <p> </p>
         <%}%>
+
+
 
       </div>
     </div>
@@ -21,13 +21,13 @@
     </div>
     <div class="row text-center">
       <div class="col-4">
-        <a href="/profile/user/<%= profile.id %>" class="btn btn-primary">Posts:</a>
+        <a href="/profile/user/<%= profile.id %>" class="btn btn-primary">Posts</a>
       </div>
       <div class="col-4">
-        <a href="/profile/followers/<%= profile.id %>" class="btn btn-primary">Followers:</a>
+        <a href="/profile/followers/<%= profile.id %>" class="btn btn-primary">Followers</a>
       </div>
       <div class="col-4">
-        <a href="/profile/following/<%= profile.id %>" class="btn btn-primary">Following:</a>
+        <a href="/profile/following/<%= profile.id %>" class="btn btn-primary">Following</a>
       </div>
     </div>
 </div>
