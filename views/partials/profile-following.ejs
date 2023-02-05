@@ -1,8 +1,8 @@
-<div class="col-lg-10 my-4">
+<div class="col-lg-10 my-4 following">
 	<h2>Following</h2>
-	<ul class="list-unstyled d-flex flex-row flex-wrap">
+	<ul class="list-unstyled d-flex flex-row flex-wrap justify-content-center">
 	<% for(var i=0; i<profile.following.length; i++) {%>
-		<li class="justify-content-between d-flex flex-column align-items-center mt-3 mx-1 mx-md-3">
+		<li class="justify-content-between d-flex flex-column align-items-center mt-3 mx-1 mx-md-3 following-item">
 			<div class="px-3 py-3 text-center blur-background border border-secondary">
 				<img class="img-fluid rounded-circle user-thumbnail" src="<%= profile.following[i].picLink%>">
 				<a class="d-block" href="/profile/user/<%= profile.following[i]._id%>"><%= profile.following[i].userName%></a>

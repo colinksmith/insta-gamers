@@ -1,17 +1,15 @@
-<div class="col-lg-10 profile-details my-3">
-    <div class="row align-items-center">
-      <img class="col-3 rounded-circle" src=<%= profile.picLink %> >
-      <div class="col-6">
-        <p><strong>User Name</strong>: <%= profile.userName %></p>
-
-      </div>
-      <div class="col-3 ">
+<div class="row">
+<div class="col-lg-10 offset-lg-1 profile-details my-3">
+    <div class="align-items-center d-flex img-row">
+      <img class="rounded-circle flex-shrink-1" src=<%= profile.picLink %> >
+      <p class="flex-grow-1 mb-0 user-name text-center"><strong><%= profile.userName %></strong></p>
+      <div class="flex-shrink-1">
         <%if(user && profile.id === user.id) {%>
           <a href="/profile/settings" class="btn btn-primary">edit profile</a>
         <%} else if (user){%>
-          <form class="col-1" action="/profile/follow/<%= profile.id %>?_method=POST" method="POST">
-          <button class="btn btn-primary fa fa-heart" type="submit">Follow</button>
-        </form>
+          <form class="" action="/profile/follow/<%= profile.id %>?_method=POST" method="POST">
+            <button class="btn btn-primary fa fa-heart" type="submit">Follow</button>
+          </form>
         <%} else {%>
           <p> </p>
         <%}%>
@@ -22,8 +20,15 @@
       <p class="col-sm-10 offset-sm-1 mt-4"><%= profile.bio %></p>
     </div>
     <div class="row text-center">
-      <a href="/profile/user/<%= profile.id %>" class="col-4">Posts:</a>
-      <a href="/profile/followers/<%= profile.id %>" class="col-4">Followers:</a>
-      <a href="/profile/following/<%= profile.id %>" class="col-4">Following:</a>
+      <div class="col-4">
+        <a href="/profile/user/<%= profile.id %>" class="btn btn-primary">Posts:</a>
+      </div>
+      <div class="col-4">
+        <a href="/profile/followers/<%= profile.id %>" class="btn btn-primary">Followers:</a>
+      </div>
+      <div class="col-4">
+        <a href="/profile/following/<%= profile.id %>" class="btn btn-primary">Following:</a>
+      </div>
     </div>
+</div>
 </div>

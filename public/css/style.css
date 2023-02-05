@@ -18,6 +18,7 @@ body {
     aspect-ratio: 1;
     object-fit: cover;
     padding-inline: 0;
+    max-width: max(20vw, 100px);
 }
 
 .commentContainer img {
@@ -30,7 +31,7 @@ body {
 }
 
 .profile .user-thumbnail {
-    max-width: 100px;
+    max-width: min(100px, 20vw);
 }
 
 .logo {
@@ -86,7 +87,7 @@ body {
 }
 
 .sidebar-1 {
-    background-color: transparent;
+    /* background-color: transparent; */
     border: 2px solid rgba(255, 255, 255, 0);
     border-radius: 20px;
     -webkit-transition: all .15s ease-in-out;
@@ -101,6 +102,10 @@ body {
 }
 .primary-nav {
     font-size: 1.5rem;
+}
+
+.profile-details .sidebar-1 {
+
 }
 
 /* layout */
@@ -130,6 +135,26 @@ main {
 .primary-nav ul li {
     justify-content: center;
     height: 100%;
+    flex-grow: 1;
+}
+
+.profile-details .img-row {
+    justify-content: space-around;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.profile-details .user-name {
+    order: 1;
+    width: 100%;
+}
+
+.following-item {
+    width: min(25vw, 125px);
+}
+.following-item > div {
+    max-height: 190px;
+    overflow: hidden;
 }
 
 /* hidden elements */
@@ -154,6 +179,12 @@ main {
     }
     .primary-nav ul li {
         height: auto;
+        flex-grow: 0;
+        width: 100%;
+    }
+    .profile-details .user-name {
+        order: 0;
+        width: auto;
     }
 }
 

@@ -6,11 +6,11 @@
       <%- include('partials/profile-details') -%>
       <%if(user && profile.id === user.id){ %>
 
-        <div class="row">
+        <div class="row my-4">
           <button class="btn btn-primary col-sm-6 offset-sm-3" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Add a post</button>
         </div>
         
-        <div id="collapseExample" class="my-3 collapse blur-background border border-secondary px-3 py-3">
+        <div id="collapseExample" class="col-lg-10 my-3 collapse blur-background border border-secondary px-3 py-3">
           <form action="/post/createPost" enctype="multipart/form-data" method="POST">
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
