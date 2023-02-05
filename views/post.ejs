@@ -60,10 +60,19 @@
               <div class="col shrink mb-0 px-0"><a class="py-3 px-1" href="/profile/user/<%= originalPoster._id %>"><%= originalPoster.userName%></a>
                 <%if( user && originalPoster.id === user.id) {%>
 
+                <% } else if (originalPoster.followers.includes(user.id)){ %>
+                  <span> - </span>
+                  <form class="w-auto d-inline-block" action="/profile/unFollow/<%= originalPoster.id %>?_method=PUT" method="POST">
+                    <button class="btn btn-primary fa fa-heart triggered-button" type="submit">
+                      <span>Following</span>
+                    </button>
+                  </form>
                 <% } else { %>
                   <span> - </span>
                   <form class="w-auto d-inline-block" action="/profile/follow/<%= originalPoster.id %>?_method=POST" method="POST">
-                    <button class="btn btn-primary fa fa-heart" type="submit"> Follow</button>
+                    <button class="btn btn-primary fa fa-heart" type="submit">
+                      <span>Follow</span>
+                    </button>
                   </form>
                 <% } %>
                 </div>

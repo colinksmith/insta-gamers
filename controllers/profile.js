@@ -75,6 +75,25 @@ module.exports = {
       console.log(err);
     }
   },
+  unFollowProfile: async (req, res) => {
+    try {
+      await User.updateOne(
+        { _id: req.user.id },
+        {
+          $pull: { following: req.params.profileId },
+        }
+      );
+      await User.updateOne(
+        { _id: req.params.profileId },
+        {
+          $pull: { followers: req.user.id },
+        }
+      )
+      res.redirect(`/profile/user/${req.params.profileId}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getUserProfileSettings: async (req, res) => {
     try {
         req.user

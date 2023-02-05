@@ -12,6 +12,7 @@ router.get("/", ensureAuth, profileController.getProfile);
 router.get("/user/:profileId", profileController.getUserProfile);
 router.get("/followers/:profileId", profileController.getUserProfileFollowers);
 router.post("/follow/:profileId", ensureAuth, profileController.followProfile);
+router.put("/unFollow/:profileId", ensureAuth, profileController.unFollowProfile);
 router.get("/following/:profileId", profileController.getUserProfileFollowing);
 router.get("/settings", ensureAuth, profileController.getUserProfileSettings);
 router.put("/settings", ensureAuth, profileController.updateUserProfileSettings);

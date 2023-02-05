@@ -109,7 +109,12 @@ body {
 }
 
 .triggered-button {
-    color: pink;
+    color: red;
+}
+
+.fa.btn > span {
+    font-family: sans-serif;
+    color: white;
 }
 
 /* layout */

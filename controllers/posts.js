@@ -33,6 +33,10 @@ module.exports = {
                                      .sort({ createdAt: "asc" })
                                      .lean()
 
+      // console.log(post)
+      // console.log(req.user)
+      // console.log(originalPoster)
+      // console.log(comments)
       res.render("post.ejs", { post: post, user: req.user, originalPoster: originalPoster, comments: comments });
     } catch (err) {
       console.log(err);

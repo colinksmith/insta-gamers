@@ -6,11 +6,19 @@
       <div class="flex-shrink-1">
         <%if(user && profile.id === user.id) {%>
           <a href="/profile/settings" class="btn btn-primary">edit profile</a>
-        <%} else {%>
-          <form class="" action="/profile/follow/<%= profile.id %>?_method=POST" method="POST">
-            <button class="btn btn-primary fa fa-heart" type="submit">Follow</button>
+        <% } else if (profile.followers.includes(user.id)){ %>
+          <form class="w-auto d-inline-block" action="/profile/unFollow/<%= profile.id %>?_method=PUT" method="POST">
+            <button class="btn btn-primary fa fa-heart triggered-button" type="submit">
+              <span>Following</span>
+            </button>
           </form>
-        <%}%>
+        <% } else { %>
+          <form class="w-auto d-inline-block" action="/profile/follow/<%= profile.id %>?_method=POST" method="POST">
+            <button class="btn btn-primary fa fa-heart" type="submit">
+              <span>Follow</span>
+            </button>
+          </form>
+        <% } %>
 
 
 
