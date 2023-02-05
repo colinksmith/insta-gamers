@@ -104,6 +104,10 @@ body {
 }
 
 /* layout */
+main {
+    margin-bottom: min(100px, 10vh);
+}
+
 .content > *{
     margin-inline: auto;
 }
@@ -136,6 +140,9 @@ body {
 /* media queries */
 
 @media (min-width: 768px) {
+    main {
+        margin-bottom: 0;
+    }
     .primary-nav {
         height: 100%;
         top: 0;
@@ -144,6 +151,9 @@ body {
     }
     .primary-nav ul {
         flex-direction: column;
+    }
+    .primary-nav ul li {
+        height: auto;
     }
 }
 
