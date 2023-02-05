@@ -9,7 +9,7 @@
       </div>
       <div class="row text-center mt-3">
 
-        <%if(post.likers.includes(user.id)){ %>
+        <%if(user && post.likers.includes(user.id)){ %>
           <form
             class="col-2"
             action="/post/dislikePost/<%= post.id %>?_method=PUT"
