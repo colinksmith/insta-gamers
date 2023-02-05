@@ -108,6 +108,10 @@ body {
 
 }
 
+.triggered-button {
+    color: pink;
+}
+
 /* layout */
 main {
     margin-bottom: min(100px, 10vh);

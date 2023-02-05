@@ -64,6 +64,22 @@ module.exports = {
         { _id: req.params.id },
         {
           $inc: { likes: 1 },
+          $push: {likers: req.user.id}
+        }
+      );
+      console.log("Likes +1");
+      res.redirect(`/post/${req.params.id}`);
+    } catch (err) {
+      console.log(err);
+    }
+  },
+  dislikePost: async (req, res) => {
+    try {
+      await Post.findOneAndUpdate(
+        { _id: req.params.id },
+        {
+          $inc: { likes: -1 },
+          $pull: {likers: req.user.id}
         }
       );
       console.log("Likes +1");

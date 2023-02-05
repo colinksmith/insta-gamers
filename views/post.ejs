@@ -8,13 +8,25 @@
 
       </div>
       <div class="row text-center mt-3">
-        <form
-          class="col-2"
-          action="/post/likePost/<%= post.id %>?_method=PUT"
-          method="POST"
-        >
-          <button class="btn btn-primary fa fa-heart" type="submit"></button>
-        </form>
+
+        <%if(post.likers.includes(user.id)){ %>
+          <form
+            class="col-2"
+            action="/post/dislikePost/<%= post.id %>?_method=PUT"
+            method="POST"
+          >
+            <button class="btn btn-primary fa fa-heart triggered-button" type="submit"></button>
+          </form>
+        <%} else {%>
+          <form
+            class="col-2"
+            action="/post/likePost/<%= post.id %>?_method=PUT"
+            method="POST"
+          >
+            <button class="btn btn-primary fa fa-heart" type="submit"></button>
+          </form>
+        <%}%>
+
         <h3 class="col-8">Likes: <%= post.likes %></h3>
         <%if(user && post.user == user.id){ %>
         <form
