@@ -6,7 +6,7 @@
       <div class="flex-shrink-1">
         <%if(user && profile.id === user.id) {%>
           <a href="/profile/settings" class="btn btn-primary">edit profile</a>
-        <% } else if (profile.followers.includes(user.id)){ %>
+        <% } else if (user && profile.followers.includes(user.id)){ %>
           <form class="w-auto d-inline-block" action="/profile/unFollow/<%= profile.id %>?_method=PUT" method="POST">
             <button class="btn btn-primary fa fa-heart triggered-button" type="submit">
               <span>Following</span>
