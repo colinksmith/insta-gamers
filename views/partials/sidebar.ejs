@@ -1,16 +1,49 @@
-<nav class="col-2 fixed-top mt-3 h-100 blur-background d-flex flex-column align-items-center">
-    <img class="logo mb-3" src="https://res.cloudinary.com/dpwcgywul/image/upload/v1675547242/default_g8zd6x.png">
-    <ul class="d-flex flex-column list-unstyled text-center w-100">
+<nav class="col-md-2 mt-3 blur-background d-flex align-items-center primary-nav">
+    <img class="logo mb-md-3" src="https://res.cloudinary.com/dpwcgywul/image/upload/v1675547242/default_g8zd6x.png">
+    <ul class="d-flex align-items-center list-unstyled text-center w-100 ">
 
         <%if(user){ %>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/feed">My Feed</a></li>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/">Explore</a></li>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/profile/">Profile</a></li>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/profile/settings">Settings</a></li>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a class="" href="/logout">Log Out</a></li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a class="" href="/feed">
+                    <i class="fa-solid fa-house"></i>
+                    <span class="d-lg">My Feed</span>
+                </a>
+            </li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a class="" href="/">
+                    <i class="fa-solid fa-compass"></i>
+                    <span class="d-lg">Explore</span>
+                </a>
+            </li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a class="" href="/profile/">
+                    <i class="fa-solid fa-address-card"></i>
+                    <span class="d-lg">Profile</span>
+                </a>
+            </li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a class="" href="/profile/settings">
+                    <i class="fa-solid fa-gear"></i>
+                    <span class="d-lg">Settings</span>
+                </a>
+            </li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a class="" href="/logout">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="d-lg">Log Out</span>
+                </a>
+            </li>
         <% } else { %>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a href="/">Explore</a></li>
-            <li class="mb-1 sidebar-1 px-1 py-1"><a href="/login">Log In</a></li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a href="/"><i class="fa-solid fa-compass"></i>
+                    <span class="d-lg">Explore</span>
+                </a>
+            </li>
+            <li class="mb-md-1 sidebar-1 px-md-3 py-md-3 d-flex align-items-center w-100">
+                <a href="/login"><i class="fa-solid fa-arrow-right-to-bracket"></i>
+                    <span class="d-lg">Log In</span>
+                </a>
+            </li>
         <% } %>
 
     </ul>
