@@ -3,7 +3,7 @@ A social media platform where users can share pictures and posts of their favori
 
 **Link to project:** https://insta-gamer.cyclic.app/
 
-![alt tag](http://placecorgi.com/1200/650)
+![alt tag](https://colinkenjirosmith.netlify.app/images/insta-gamer.jpg)
 
 ## How It's Made:
 
