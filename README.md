@@ -7,7 +7,7 @@ A social media platform where users can share pictures and posts of their favori
 
 ## How It's Made:
 
-**Tech used:** CSS, Javascipt, Bootstrap, MongoDB, Express, Node, Cloudinary, Passport
+**Tech used:** Bootstrap, MongoDB, Express, Node, Cloudinary, Passport, CSS, Javascipt
 
 As a full stack CRUD app, I used a model view controller (MVC) organization to help my project stay organized and scale as I added features. The models Users and Posts hold the bulk of the information, and I eventually added Comments as well. The models are linked to each other such that each post includes the ID of the user that posted it, as well as comments being linked to both a post and a user.
 
