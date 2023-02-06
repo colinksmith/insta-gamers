@@ -1,4 +1,4 @@
-# My Awesome Project
+# Insta-Gamer
 A social media platform where users can share pictures and posts of their favorite videogame tips, tricks, accomplishments, memes and more. 
 Full stack built by me, with CRUD and REST api features on the backend.
 
